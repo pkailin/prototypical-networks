@@ -1,0 +1,79 @@
+Running: mkdir ./omniglot_default/trainval/
+----------------------------------------
+Running: mv ./results/trainval/best_model.pt ./omniglot_default/trainval/best_model.pt
+----------------------------------------
+Running: python scripts/predict/few_shot/run_eval.py --model.model_path ./omniglot_default/trainval/best_model.pt --data.test_episodes=600
+Traceback (most recent call last):
+  File "scripts/predict/few_shot/run_eval.py", line 22, in <module>
+    main(args)
+  File "/mnt/c/Users/ngtit/Desktop/prototypical-networks/scripts/predict/few_shot/eval.py", line 20, in main
+    with open(model_opt_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './omniglot_default/trainval/opt.json'
+----------------------------------------
+Running: python scripts/train/few_shot/run_train.py --log.exp_dir ./omniglot_5w1s --data.shot 1 --data.test_way 5
+/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:143: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Epoch 1 train:   0%|          | 0/100 [00:00<?, ?it/s]Epoch 1 train:   1%|          | 1/100 [00:03<05:01,  3.05s/it]----------------------------------------
+Running: python scripts/train/few_shot/run_trainval.py --model.model_path ./omniglot_5w1s/best_model.pt
+Traceback (most recent call last):
+  File "scripts/train/few_shot/run_trainval.py", line 12, in <module>
+    main(args)
+  File "/mnt/c/Users/ngtit/Desktop/prototypical-networks/scripts/train/few_shot/trainval.py", line 13, in main
+    trace_vals = load_trace(trace_file)
+  File "/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/protonets-0.0.1-py3.7.egg/protonets/utils/log.py", line 38, in load_trace
+    with open(trace_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './omniglot_5w1s/trace.txt'
+----------------------------------------
+Running: mkdir ./omniglot_5w1s/trainval/
+----------------------------------------
+Running: mv ./results/trainval/best_model.pt ./omniglot_5w1s/trainval/best_model.pt
+mv: cannot stat './results/trainval/best_model.pt': No such file or directory
+----------------------------------------
+Running: python scripts/predict/few_shot/run_eval.py --model.model_path ./omniglot_5w1s/trainval/best_model.pt --data.test_episodes=600
+Traceback (most recent call last):
+  File "scripts/predict/few_shot/run_eval.py", line 22, in <module>
+    main(args)
+  File "/mnt/c/Users/ngtit/Desktop/prototypical-networks/scripts/predict/few_shot/eval.py", line 15, in main
+    model = torch.load(opt['model.model_path'])
+  File "/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: './omniglot_5w1s/trainval/best_model.pt'
+----------------------------------------
+Running: python scripts/train/few_shot/run_train.py --log.exp_dir ./omniglot_20w1s --data.shot 1 --data.test_way 20
+/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:143: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Epoch 1 train:   0%|          | 0/100 [00:00<?, ?it/s]----------------------------------------
+Running: python scripts/train/few_shot/run_trainval.py --model.model_path ./omniglot_20w1s/best_model.pt
+----------------------------------------
+Running: mkdir ./omniglot_20w1s/trainval/
+----------------------------------------
+Running: mv ./results/trainval/best_model.pt ./omniglot_20w1s/trainval/best_model.pt
+mv: cannot stat './results/trainval/best_model.pt': No such file or directory
+----------------------------------------
+Running: python scripts/predict/few_shot/run_eval.py --model.model_path ./omniglot_20w1s/trainval/best_model.pt --data.test_episodes=600
+----------------------------------------
+Running: python scripts/train/few_shot/run_train.py --log.exp_dir ./omniglot_20w5s --data.shot 5 --data.test_way 20
+/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/torch/optim/lr_scheduler.py:143: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  "https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate", UserWarning)
+Epoch 1 train:   0%|          | 0/100 [00:00<?, ?it/s]----------------------------------------
+Running: python scripts/train/few_shot/run_trainval.py --model.model_path ./omniglot_20w5s/best_model.pt
+Traceback (most recent call last):
+  File "scripts/train/few_shot/run_trainval.py", line 12, in <module>
+    main(args)
+  File "/mnt/c/Users/ngtit/Desktop/prototypical-networks/scripts/train/few_shot/trainval.py", line 13, in main
+    trace_vals = load_trace(trace_file)
+  File "/home/ngtit/anaconda3/envs/proto-net/lib/python3.7/site-packages/protonets-0.0.1-py3.7.egg/protonets/utils/log.py", line 38, in load_trace
+    with open(trace_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: './omniglot_20w5s/trace.txt'
+----------------------------------------
+Running: mkdir ./omniglot_20w5s/trainval/
+----------------------------------------
+Running: mv ./results/trainval/best_model.pt ./omniglot_20w5s/trainval/best_model.pt
+mv: cannot stat './results/trainval/best_model.pt': No such file or directory
+----------------------------------------
+Running: python scripts/predict/few_shot/run_eval.py --model.model_path ./omniglot_20w5s/trainval/best_model.pt --data.test_episodes=600
+----------------------------------------
